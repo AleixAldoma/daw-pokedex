@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <img (click)="goToTop()" id="logo" src="../../assets/img/pokeball.png">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <ion-input *ngIf="(!loaded || showLoaded) || finished" id="searchInput" class="input" placeholder="Search..." (keyup)="search()"></ion-input>
+  <ion-input *ngIf="(loaded && !showLoaded) && !finished" id="searchInput" class="input" placeholder="Search..." disabled></ion-input>
+  <ion-select (ionChange)="genUpdate()" id="genInput" class="input" placeholder="Select the Generation...">
+    <ion-select-option value="gen1">Generation I</ion-select-option>
+    <ion-select-option value="gen2">Generation II</ion-select-option>
+    <ion-select-option value="gen3">Generation III</ion-select-option>
+    <ion-select-option value="gen4">Generation IV</ion-select-option>
+    <ion-select-option value="gen5">Generation V</ion-select-option>
+    <ion-select-option value="gen6">Generation VI</ion-select-option>
+    <ion-select-option value="gen7">Generation VII</ion-select-option>
+    <ion-select-option value="gen8">Generation VIII</ion-select-option>
+    <ion-select-option value="other">Other</ion-select-option>
+  </ion-select>
+  <ion-grid>
+    <ion-row>
+      <ion-col id="p{{pokemon.id}}" size-xs="6" size-sm="4" size-md="3" size-lg="2" *ngFor="let pokemon of myPokemon; let idx = index">
+        <a [routerLink]="['/pokemon',idx]">
+        <div class="pokeDiv" [ngClass]="{'grassDiv':pokemon.mainType==='grass',
+                                        'fireDiv':pokemon.mainType==='fire',
+                                        'waterDiv':pokemon.mainType==='water',
+                                        'rockDiv':pokemon.mainType==='rock',
+                                        'groundDiv':pokemon.mainType==='ground',
+                                        'electricDiv':pokemon.mainType==='electric',
+                                        'bugDiv':pokemon.mainType==='bug',
+                                        'dragonDiv':pokemon.mainType==='dragon',
+                                        'fairyDiv':pokemon.mainType==='fairy',
+                                        'iceDiv':pokemon.mainType==='ice',
+                                        'poisonDiv':pokemon.mainType==='poison',
+                                        'steelDiv':pokemon.mainType==='steel',
+                                        'normalDiv':pokemon.mainType==='normal',
+                                        'ghostDiv':pokemon.mainType==='ghost',
+                                        'darkDiv':pokemon.mainType==='dark',
+                                        'psychicDiv':pokemon.mainType==='psychic',
+                                        'flyingDiv':pokemon.mainType==='flying',
+                                        'fightingDiv':pokemon.mainType==='fighting'}">
+          <div [ngClass]="['imgDiv']">
+            <span *ngIf="pokemon.id<10000" [ngClass]="'pNumber'">#{{pokemon.id}}</span>
+            <img [ngClass]="['pImage']" src="{{pokemon.image}}" onerror="this.onerror=null; this.src='../../assets/img/pokeball.png'">
+          </div>
+          <div [ngClass]="'nameDiv'">
+             <h5 [ngClass]="'pName'">{{pokemon.name}}</h5>
+          </div>
+        </div>
+      </a>
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

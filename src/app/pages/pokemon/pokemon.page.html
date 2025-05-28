@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button class="back"></ion-back-button>
+    <img (click)="switchTheme()" id="logo" src="../../assets/img/pokeball.png">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="pokeInfo">
+    <div id="pokeInfoDetails">
+      <div id="pokeInfoImage">
+        <img src="{{pokemon.image}}"  onerror="this.onerror=null; this.src='../../assets/img/pokeball.png'">
+      </div>
+      <div id="pokeInfoName">
+        <p>{{pokemon.name}}</p>
+      </div>
+    </div>
+    <div id="pokeInfoTypes">
+      <!-- Main -->
+      <img *ngIf="pokemon.mainType=='fire'" class="typeImg" src="../../../assets/img/FireIC.png">
+      <img *ngIf="pokemon.mainType=='water'" class="typeImg" src="../../../assets/img/WaterIC.png">
+      <img *ngIf="pokemon.mainType=='grass'" class="typeImg" src="../../../assets/img/GrassIC.png">
+      <img *ngIf="pokemon.mainType=='rock'" class="typeImg" src="../../../assets/img/RockIC.png">
+      <img *ngIf="pokemon.mainType=='ground'" class="typeImg" src="../../../assets/img/GroundIC.png">
+      <img *ngIf="pokemon.mainType=='electric'" class="typeImg" src="../../../assets/img/ElectricIC.png">
+      <img *ngIf="pokemon.mainType=='normal'" class="typeImg" src="../../../assets/img/NormalIC.png">
+      <img *ngIf="pokemon.mainType=='fighting'" class="typeImg" src="../../../assets/img/FightingIC.png">
+      <img *ngIf="pokemon.mainType=='flying'" class="typeImg" src="../../../assets/img/FlyingIC.png">
+      <img *ngIf="pokemon.mainType=='ghost'" class="typeImg" src="../../../assets/img/GhostIC.png">
+      <img *ngIf="pokemon.mainType=='ice'" class="typeImg" src="../../../assets/img/IceIC.png">
+      <img *ngIf="pokemon.mainType=='steel'" class="typeImg" src="../../../assets/img/SteelIC.png">
+      <img *ngIf="pokemon.mainType=='dragon'" class="typeImg" src="../../../assets/img/DragonIC.png">
+      <img *ngIf="pokemon.mainType=='fairy'" class="typeImg" src="../../../assets/img/FairyIC.png">
+      <img *ngIf="pokemon.mainType=='bug'" class="typeImg" src="../../../assets/img/BugIC.png">
+      <img *ngIf="pokemon.mainType=='poison'" class="typeImg" src="../../../assets/img/PoisonIC.png">
+      <img *ngIf="pokemon.mainType=='dark'" class="typeImg" src="../../../assets/img/DarkIC.png">
+      <img *ngIf="pokemon.mainType=='psychic'" class="typeImg" src="../../../assets/img/PsychicIC.png">
+      <!-- Sub -->
+      <img *ngIf="pokemon.subType=='fire'" class="typeImg" src="../../../assets/img/FireIC.png">
+      <img *ngIf="pokemon.subType=='water'" class="typeImg" src="../../../assets/img/WaterIC.png">
+      <img *ngIf="pokemon.subType=='grass'" class="typeImg" src="../../../assets/img/GrassIC.png">
+      <img *ngIf="pokemon.subType=='rock'" class="typeImg" src="../../../assets/img/RockIC.png">
+      <img *ngIf="pokemon.subType=='ground'" class="typeImg" src="../../../assets/img/GroundIC.png">
+      <img *ngIf="pokemon.subType=='electric'" class="typeImg" src="../../../assets/img/ElectricIC.png">
+      <img *ngIf="pokemon.subType=='normal'" class="typeImg" src="../../../assets/img/NormalIC.png">
+      <img *ngIf="pokemon.subType=='fighting'" class="typeImg" src="../../../assets/img/FightingIC.png">
+      <img *ngIf="pokemon.subType=='flying'" class="typeImg" src="../../../assets/img/FlyingIC.png">
+      <img *ngIf="pokemon.subType=='ghost'" class="typeImg" src="../../../assets/img/GhostIC.png">
+      <img *ngIf="pokemon.subType=='ice'" class="typeImg" src="../../../assets/img/IceIC.png">
+      <img *ngIf="pokemon.subType=='steel'" class="typeImg" src="../../../assets/img/SteelIC.png">
+      <img *ngIf="pokemon.subType=='dragon'" class="typeImg" src="../../../assets/img/DragonIC.png">
+      <img *ngIf="pokemon.subType=='fairy'" class="typeImg" src="../../../assets/img/FairyIC.png">
+      <img *ngIf="pokemon.subType=='bug'" class="typeImg" src="../../../assets/img/BugIC.png">
+      <img *ngIf="pokemon.subType=='poison'" class="typeImg" src="../../../assets/img/PoisonIC.png">
+      <img *ngIf="pokemon.subType=='dark'" class="typeImg" src="../../../assets/img/DarkIC.png">
+      <img *ngIf="pokemon.subType=='psychic'" class="typeImg" src="../../../assets/img/PsychicIC.png">
+    </div>
+    <div id="pokeInfoStats">
+      <table width="100%">
+        <tr>
+          <th id="hp">HP</th>
+          <th id="atk">ATK</th>
+          <th id="def">DEF</th>
+          <th id="spAtk">SPATK</th>
+          <th id="spDef">SPDEF</th>
+          <th id="spd">SPD</th>
+          <th id="total">TOTAL</th>
+        </tr>
+        <tr>
+          <td>{{pokemon.hp}}</td>
+          <td>{{pokemon.atk}}</td>
+          <td>{{pokemon.def}}</td>
+          <td>{{pokemon.spAtk}}</td>
+          <td>{{pokemon.spDef}}</td>
+          <td>{{pokemon.spd}}</td>
+          <td>{{pokemon.total}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</ion-content>
